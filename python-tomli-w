@@ -1,4 +1,4 @@
-%global pypi_name tomli-w
+%global pypi_name tomli_w
 
 Name:           python-tomli-w
 Version:        1.0.0
@@ -21,7 +21,7 @@ BuildRequires:  python3dist(tomli)
 BuildRequires:  python-pip
 
 %prep
-%autosetup -p1 -n tomli-w-%{version}
+%autosetup -p1 -n tomli_w-%{version}
 
 mkdir wheels
 pip wheel --wheel-dir wheels --no-deps --no-build-isolation --verbose .
