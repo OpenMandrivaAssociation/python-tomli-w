@@ -11,7 +11,7 @@ Source0:        https://pypi.io/packages/source/t/%{pypi_name}/%{pypi_name}-%{ve
 
 BuildArch:      noarch
 BuildRequires:  python3dist(python)
-BuildRequires:  pyproject-rpm-macros
+#BuildRequires:  pyproject-rpm-macros
 BuildRequires:  python-flit-core
 #BuildRequires:  python-tox
 #BuildRequires:  python3dist(tox-current-env)
