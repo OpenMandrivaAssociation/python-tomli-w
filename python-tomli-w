@@ -1,64 +1,36 @@
-%bcond_without check
+%global pypi_name tomli-w
 
 Name:           python-tomli-w
-Version:        0.4.0
-Release:        %mkrel 3
+Version:        1.0.0
+Release:        1
 Summary:        A Python library for writing TOML
 Group:		Development/Python
 License:        MIT
 URL:            https://github.com/hukkin/tomli-w
-Source0:        %{url}/archive/%{version}/tomli-w-%{version}.tar.gz
+Source0:        https://pypi.io/packages/source/t/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
 BuildArch:      noarch
-BuildRequires:  python3-devel
+BuildRequires:  python3dist(python)
 BuildRequires:  pyproject-rpm-macros
-BuildRequires:  python3-flit-core
-BuildRequires:  python3-tox
-BuildRequires:  python3dist(tox-current-env)
+BuildRequires:  python-flit-core
+#BuildRequires:  python-tox
+#BuildRequires:  python3dist(tox-current-env)
 BuildRequires:  python3dist(tomli)
-BuildRequires:  python3dist(pytest-randomly)
-BuildRequires:  python3dist(pytest-cov)
-
-%global _description %{expand:
-Tomli-W is a Python library for writing TOML. It is a write-only counterpart
-to Tomli, which is a read-only TOML parser. Tomli-W is fully compatible
-with TOML v1.0.0.}
-
-%description %_description
-
-%package -n python3-tomli-w
-Summary:        %{summary}
-
-%description -n python3-tomli-w %_description
-
+#BuildRequires:  python3dist(pytest-randomly)
+#BuildRequires:  python3dist(pytest-cov)
+BuildRequires:  python-pip
 
 %prep
 %autosetup -p1 -n tomli-w-%{version}
 
-
-%generate_buildrequires
-%pyproject_buildrequires %{?with_check:-t}
-
-
-%build
-%pyproject_wheel
-
+mkdir wheels
+pip wheel --wheel-dir wheels --no-deps --no-build-isolation --verbose .
 
 %install
-%pyproject_install
-%pyproject_save_files tomli_w
+pip install --root=%{buildroot} --no-deps --verbose --ignore-installed --no-warn-script-location --no-index --no-cache-dir --find-links wheels wheels/*.whl
 
 
-%check
-%if %{with check}
-%tox
-%else
-# no %%pyproject_check_import on EL9
-%py3_check_import tomli_w
-%endif
-
-
-%files -n python3-tomli-w -f %{pyproject_files}
+%files
 %doc README.md
 %doc CHANGELOG.md
 %license LICENSE
