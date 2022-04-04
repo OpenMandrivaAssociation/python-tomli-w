@@ -10,7 +10,7 @@ URL:            https://github.com/hukkin/tomli-w
 Source0:        https://pypi.io/packages/source/t/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
 BuildArch:      noarch
-BuildRequires:  python3dist(python)
+BuildRequires:  pkgconfig(python)
 #BuildRequires:  pyproject-rpm-macros
 BuildRequires:  python-flit-core
 #BuildRequires:  python-tox
