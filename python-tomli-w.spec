@@ -37,6 +37,5 @@ pip install --root=%{buildroot} --no-deps --verbose --ignore-installed --no-warn
 
 %files
 %doc README.md
-%doc CHANGELOG.md
 %license LICENSE
 
