@@ -20,6 +20,11 @@ BuildRequires:  python3dist(tomli)
 #BuildRequires:  python3dist(pytest-cov)
 BuildRequires:  python-pip
 
+%description
+Tomli-W is a Python library for writing TOML. It is a write-only counterpart
+to Tomli, which is a read-only TOML parser. Tomli-W is fully compatible
+with TOML v1.0.0.}
+
 %prep
 %autosetup -p1 -n tomli_w-%{version}
 
