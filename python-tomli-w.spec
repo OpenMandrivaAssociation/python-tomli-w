@@ -38,4 +38,5 @@ pip install --root=%{buildroot} --no-deps --verbose --ignore-installed --no-warn
 %files
 %doc README.md
 %license LICENSE
-
+%{python_sitelib}/tomli_w-%{version}.dist-info
+%{python_sitelib}/tomli_w/
