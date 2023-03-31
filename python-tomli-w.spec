@@ -2,7 +2,7 @@
 
 Name:           python-tomli-w
 Version:        1.0.0
-Release:        1
+Release:        2
 Summary:        A Python library for writing TOML
 Group:		Development/Python
 License:        MIT
