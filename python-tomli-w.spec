@@ -1,8 +1,8 @@
 %global pypi_name tomli_w
 
 Name:           python-tomli-w
-Version:        1.0.0
-Release:        2
+Version:        1.1.0
+Release:        1
 Summary:        A Python library for writing TOML
 Group:		Development/Python
 License:        MIT
